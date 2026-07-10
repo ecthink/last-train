@@ -17,4 +17,4 @@ extended service).
 - `data/last-trains.json` — the learned dataset (median of up to 14 nights per station/direction)
 
 Part of a series of small things built on everyday Hong Kong systems.
-Inspired by Riley Walz. Built by Tina × Claude (vibe coding).
+Inspired by Riley Walz. Built with Claude (vibe coding).
