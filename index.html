@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尾班車 Last Train</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  :root{
+    --ink:#e8e4d8; --dim:#8b93a8; --accent:#f6d13b; --panel:#131c2e;
+    color-scheme:dark; /* native controls (time-picker icon, select arrows) render light */
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--ink); overflow:hidden;
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang TC","Microsoft JhengHei",sans-serif;
+    transition:background 2.5s ease;
+    background:linear-gradient(#0b1626, #101f33);
+  }
+  /* ---- phases drive the whole sky ---- */
+  body.phase-calm   {background:linear-gradient(#0b1626 0%, #101f33 80%, #16233c 100%)}
+  body.phase-settle {background:linear-gradient(#10203a 0%, #16294a 80%, #1d3156 100%)}
+  body.phase-aware  {background:linear-gradient(#1a2547 0%, #2a2a55 80%, #37305e 100%)}
+  body.phase-hurry  {background:linear-gradient(#3a2246 0%, #5c2b3a 80%, #6d3138 100%)}
+  body.phase-run    {background:linear-gradient(#5e1f24 0%, #8a2430 80%, #9c2a34 100%)}
+  body.phase-missed {background:linear-gradient(#04060c 0%, #070a12 100%)}
+
+  .sky{position:fixed; inset:0; pointer-events:none}
+  .star{position:absolute; width:2px; height:2px; background:#dfe6f5; opacity:.7; animation:tw 3s infinite}
+  @keyframes tw{0%,100%{opacity:.75}50%{opacity:.15}}
+  body.phase-run .star{opacity:.25}
+  body.phase-missed .star{opacity:.9}
+  #moon{position:absolute; right:12%; transition:top 3s ease; image-rendering:pixelated}
+
+  .wrap{
+    position:relative; height:100%; max-width:720px; margin:0 auto;
+    padding:26px 20px; display:flex; flex-direction:column; z-index:1;
+  }
+  header{display:flex; justify-content:space-between; align-items:baseline}
+  h1{
+    font-family:'Press Start 2P',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang TC","Microsoft JhengHei",sans-serif;
+    font-size:15px; margin:0; letter-spacing:2px; color:var(--ink);
+  }
+  h1 span{color:var(--accent)}
+  #gear{
+    background:none; border:2px solid rgba(232,228,216,.35); color:var(--ink);
+    font:inherit; font-size:12px; padding:5px 10px; cursor:pointer; border-radius:2px;
+  }
+  #gear:hover{border-color:var(--accent); color:var(--accent)}
+
+  .stage{flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center}
+  #where{color:var(--dim); font-size:14px; letter-spacing:1px; display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:center}
+  /* station signage capsule — the familiar shape, in our own pixel world.
+     It IS the edit control: permanent ✎ (no hover needed on touch), tap feedback. */
+  #where .cap{
+    color:#fff; font-weight:800; font-size:15px; letter-spacing:2px;
+    padding:4px 16px; border-radius:15px; border:2px solid rgba(255,255,255,.85);
+    cursor:pointer; user-select:none; transition:transform .08s ease;
+  }
+  #where .cap:active{transform:scale(.96)}
+  #where .cap .pen{font-size:11px; opacity:.65; margin-left:7px; font-weight:400; letter-spacing:0}
+  @media (hover:hover){ #where .cap:hover{filter:brightness(1.15)} }
+  #coach{width:100%; font-size:11.5px; color:var(--dim); opacity:.9; margin-top:2px}
+
+  /* first-run: the stage itself is the onboarding */
+  body.nocfg .clockbit{display:none}
+  #onboardSlot{width:100%; display:flex; justify-content:center}
+  body.nocfg #cfgClose{display:none}
+  .yline{position:absolute; bottom:34px; left:0; right:0; height:4px;
+    background:repeating-linear-gradient(90deg, #e8c53a 0 22px, #b89722 22px 26px); opacity:.8}
+  #count{
+    font-family:'Press Start 2P',"Courier New",monospace;
+    font-size:min(11vw, 64px); margin:18px 0 10px; letter-spacing:2px;
+    color:var(--ink); text-shadow:0 0 24px rgba(246,209,59,.12);
+  }
+  body.phase-run #count{animation:pulse 1s infinite; color:#ffd9d9}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+  #mood{font-size:17px; color:var(--ink); opacity:.9; min-height:26px}
+  body.phase-run #mood{font-size:24px; font-weight:800; color:#ffe08a}
+
+  #live{
+    margin-top:26px; display:flex; flex-direction:column; gap:6px; align-items:center;
+    font-size:13.5px; color:var(--dim);
+  }
+  #live .chip{
+    border:1px solid rgba(139,147,168,.35); border-radius:2px; padding:5px 12px;
+    background:rgba(10,16,28,.45);
+  }
+  #live .chip b{color:var(--ink); font-weight:600}
+  #live .now{color:var(--accent)}
+
+  /* ---- track + train ---- */
+  .trackzone{height:84px; position:relative; margin:0 -20px}
+  .track{position:absolute; bottom:26px; left:0; right:0; height:3px; background:rgba(139,147,168,.4)}
+  .track:after{
+    content:""; position:absolute; top:5px; left:0; right:0; height:2px;
+    background-image:linear-gradient(90deg, rgba(139,147,168,.35) 0 12px, transparent 12px 26px);
+    background-size:26px 2px;
+  }
+  #train{position:absolute; bottom:31px; transition:left 4s linear; image-rendering:pixelated}
+  body.phase-missed #train{display:none}
+
+  footer{color:var(--dim); font-size:11.5px; text-align:center; opacity:.75}
+  footer a{color:var(--dim)}
+
+  /* ---- config panel ---- */
+  #cfg{
+    position:fixed; inset:0; background:rgba(4,7,13,.82); z-index:5;
+    display:flex; align-items:center; justify-content:center; padding:20px;
+  }
+  #cfg.hide{display:none}
+  .cfgbox{
+    position:relative; background:var(--panel); border:3px solid #38415c; border-radius:4px;
+    padding:22px; width:100%; max-width:400px; box-shadow:0 8px 40px rgba(0,0,0,.5);
+  }
+  #cfgClose{
+    position:absolute; top:10px; right:12px; background:none; border:none;
+    color:var(--dim); font-size:15px; cursor:pointer; padding:4px;
+  }
+  #cfgClose:hover{color:var(--ink)}
+  .adv{margin-top:14px}
+  .adv summary{cursor:pointer; font-size:12.5px; color:var(--dim); letter-spacing:1px}
+  .cfgbox h2{margin:0 0 4px; font-size:17px}
+  .cfgbox p{margin:0 0 16px; color:var(--dim); font-size:13px}
+  .cfgbox label{display:block; font-size:12.5px; color:var(--dim); margin:12px 0 4px; letter-spacing:1px}
+  .cfgbox select,.cfgbox input{
+    width:100%; font:inherit; font-size:15px; padding:9px 10px; color:var(--ink);
+    background:#0d1526; border:2px solid #38415c; border-radius:2px; outline:none;
+  }
+  .cfgbox select:focus,.cfgbox input:focus{border-color:var(--accent)}
+  .cfgbox .hint{font-size:12px; color:var(--dim); margin-top:6px}
+  .cfgbox .hint a{color:var(--accent)}
+  #saveCfg{
+    margin-top:18px; width:100%; font:inherit; font-weight:700; font-size:15px; letter-spacing:2px;
+    padding:11px; background:var(--accent); color:#161616; border:none; border-radius:2px; cursor:pointer;
+  }
+</style>
+</head>
+<body class="phase-calm">
+<div class="sky" id="sky"><div id="moon"></div></div>
+
+<div class="wrap">
+  <header>
+    <h1>尾班車 <span>LAST TRAIN</span></h1>
+  </header>
+
+  <div class="stage">
+    <div id="onboardSlot"></div>
+    <div id="where" class="clockbit">—</div>
+    <div id="count" class="clockbit">--:--:--</div>
+    <div id="mood" class="clockbit"></div>
+    <div id="live" class="clockbit"></div>
+  </div>
+
+  <div class="trackzone"><div class="yline"></div><div class="track"></div><div id="train"></div></div>
+  <footer>非官方項目，與香港鐵路有限公司無關 · 即時班次及實測數據：data.gov.hk 開放數據 · 時間僅供參考</footer>
+</div>
+
+<div id="cfg" class="hide">
+  <div class="cfgbox">
+    <button id="cfgClose" aria-label="關閉">✕</button>
+    <h2>你返屋企搭邊班車？</h2>
+    <p>設定一次，之後每晚自動倒數；撳站名可以隨時改。</p>
+    <label>綫路</label>
+    <select id="selLine"></select>
+    <label>你上車嘅站</label>
+    <select id="selSta"></select>
+    <label>去邊個方向</label>
+    <select id="selDir"></select>
+    <details class="adv">
+      <summary>進階：後備時間</summary>
+      <label>後備時間（實測數據未齊先用）</label>
+      <input id="inTime" type="time" value="00:30">
+      <div class="hint">唔使查嘢：我哋嘅「夜間觀察者」每晚實測全網真・尾班車，你個站有數據就會自動用實測時間。未齊數據前先用呢個後備值（市區站多數 00:20–00:50）。</div>
+    </details>
+    <button id="saveCfg">開始倒數</button>
+  </div>
+</div>
+
+<script>
+/* ============ MTR network (line code → stations, code → 中文名) ============ */
+const LINES = {
+  TKL: { name:"將軍澳綫", stas:[["NOP","北角"],["QUB","鰂魚涌"],["YAT","油塘"],["TIK","調景嶺"],["TKO","將軍澳"],["LHP","康城"],["HAH","坑口"],["POA","寶琳"]] },
+  ISL: { name:"港島綫", stas:[["KET","堅尼地城"],["HKU","香港大學"],["SYP","西營盤"],["SHW","上環"],["CEN","中環"],["ADM","金鐘"],["WAC","灣仔"],["CAB","銅鑼灣"],["TIH","天后"],["FOH","炮台山"],["NOP","北角"],["QUB","鰂魚涌"],["TAK","太古"],["SWH","西灣河"],["SKW","筲箕灣"],["HFC","杏花邨"],["CHW","柴灣"]] },
+  TWL: { name:"荃灣綫", stas:[["CEN","中環"],["ADM","金鐘"],["TST","尖沙咀"],["JOR","佐敦"],["YMT","油麻地"],["MOK","旺角"],["PRE","太子"],["SSP","深水埗"],["CSW","長沙灣"],["LCK","茘枝角"],["MEF","美孚"],["LAK","茘景"],["KWF","葵芳"],["KWH","葵興"],["TWH","大窩口"],["TSW","荃灣"]] },
+  KTL: { name:"觀塘綫", stas:[["WHA","黃埔"],["HOM","何文田"],["YMT","油麻地"],["MOK","旺角"],["PRE","太子"],["SKM","石硤尾"],["KOT","九龍塘"],["LOF","樂富"],["WTS","黃大仙"],["DIH","鑽石山"],["CHH","彩虹"],["KOB","九龍灣"],["NTK","牛頭角"],["KWT","觀塘"],["LAT","藍田"],["YAT","油塘"],["TIK","調景嶺"]] },
+  TML: { name:"屯馬綫", stas:[["WKS","烏溪沙"],["MOS","馬鞍山"],["HEO","恆安"],["TSH","大水坑"],["SHM","石門"],["CIO","第一城"],["STW","沙田圍"],["CKT","車公廟"],["TAW","大圍"],["HIK","顯徑"],["DIH","鑽石山"],["KAT","啟德"],["SUW","宋皇臺"],["TKW","土瓜灣"],["HOM","何文田"],["HUH","紅磡"],["ETS","尖東"],["AUS","柯士甸"],["NAC","南昌"],["MEF","美孚"],["TWW","荃灣西"],["KSR","錦上路"],["YUL","元朗"],["LOP","朗屏"],["TIS","天水圍"],["SIH","兆康"],["TUM","屯門"]] },
+  EAL: { name:"東鐵綫", stas:[["ADM","金鐘"],["EXC","會展"],["HUH","紅磡"],["MKK","旺角東"],["KOT","九龍塘"],["TAW","大圍"],["SHT","沙田"],["FOT","火炭"],["RAC","馬場"],["UNI","大學"],["TAP","大埔墟"],["TWO","太和"],["FAN","粉嶺"],["SHS","上水"],["LOW","羅湖"],["LMC","落馬洲"]] },
+  TCL: { name:"東涌綫", stas:[["HOK","香港"],["KOW","九龍"],["OLY","奧運"],["NAC","南昌"],["LAK","茘景"],["TSY","青衣"],["SUN","欣澳"],["TUC","東涌"]] },
+  AEL: { name:"機場快綫", stas:[["HOK","香港"],["KOW","九龍"],["TSY","青衣"],["AIR","機場"],["AWE","博覽館"]] },
+  SIL: { name:"南港島綫", stas:[["ADM","金鐘"],["OCP","海洋公園"],["WCH","黃竹坑"],["LET","利東"],["SOH","海怡半島"]] },
+  DRL: { name:"迪士尼綫", stas:[["SUN","欣澳"],["DIS","迪士尼"]] }
+};
+const STA_NAME = {};
+for (const code in LINES) for (const [c, n] of LINES[code].stas) STA_NAME[c] = n;
+// line colours as colour-coding (functional identification, same as any transit app)
+const LINE_COLOR = {
+  TKL:"#7D499D", ISL:"#0075C2", TWL:"#ED1D24", KTL:"#00A040", TML:"#9A6633",
+  EAL:"#5EB7E8", SIL:"#BAC429", TCL:"#F7943E", AEL:"#1C7670", DRL:"#F173AC"
+};
+
+/* ============ pure logic ============ */
+/*PURE-START*/
+// next occurrence of "HH:MM" strictly after `now`
+function nextOccurrence(now, hhmm){
+  const [h, m] = hhmm.split(":").map(Number);
+  const t = new Date(now);
+  t.setHours(h, m, 0, 0);
+  if (t <= now) t.setDate(t.getDate() + 1);
+  return t;
+}
+// phase from hours remaining; >18h ⇒ the train just left (missed window)
+function phaseFor(hoursUntil){
+  if (hoursUntil > 18) return "missed";
+  const mins = hoursUntil * 60;
+  if (mins < 10) return "run";
+  if (mins < 30) return "hurry";
+  if (mins < 60) return "aware";
+  if (mins < 120) return "settle";
+  return "calm";
+}
+function fmtLeft(ms){
+  const s = Math.max(0, Math.floor(ms / 1000));
+  const hh = String(Math.floor(s / 3600)).padStart(2, "0");
+  const mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
+  const ss = String(s % 60).padStart(2, "0");
+  return hh + ":" + mm + ":" + ss;
+}
+/*PURE-END*/
+
+const MOODS = {
+  calm:   "夜還長。",
+  settle: "仲有時間，飲埋杯先。",
+  aware:  "開始執嘢。",
+  hurry:  "係時候埋單。",
+  run:    "走啦！！",
+  missed: "聽朝見。"
+};
+const MISSED_SUB = "尾班車已經開出 · 而家淨返：的士 ／ 通宵巴士 ／ 訓公司";
+
+/* ============ pixel sprites ============ */
+function pixSvg(map, pal, px){
+  let r = "";
+  for (let y = 0; y < map.length; y++)
+    for (let x = 0; x < map[y].length; x++){
+      const c = map[y][x];
+      if (c !== ".") r += '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="' + pal[c] + '"/>';
+    }
+  return '<svg width="' + map[0].length * px + '" height="' + map.length * px +
+    '" viewBox="0 0 ' + map[0].length + ' ' + map.length + '" shape-rendering="crispEdges">' + r + "</svg>";
+}
+const MOON = [
+  "..yyyy..",".yyyyyy.","yyyycyyy","yyyyyyyy","ycyyyyyy","yyyyycyy",".yyyyyy.","..yyyy.."
+];
+const TRAIN = [
+  ".bbbbbbbbbbbbbbbbb..",
+  ".bwwbbwwbbwwbbwwbb..",
+  ".bwwbbwwbbwwbbwwbb..",
+  ".bbbbbbbbbbbbbbbbb..",
+  ".rrrrrrrrrrrrrrrrr..",
+  "..kk....kk....kk...."
+];
+const PAL = { y:"#f4ecd0", c:"#d9cfae", b:"#c9ced6", w:"#ffd76a", r:"#d64545", k:"#20242c" };
+
+/* ============ config ============ */
+const CFG_KEY = "lasttrain.cfg.v1";
+const COACH_KEY = "lasttrain.coach.v1";
+function loadCfg(){ try { return JSON.parse(localStorage.getItem(CFG_KEY) || "null"); } catch(e){ return null; } }
+function saveCfg(c){ try { localStorage.setItem(CFG_KEY, JSON.stringify(c)); } catch(e){} }
+function coachDone(){ try { return localStorage.getItem(COACH_KEY) === "1"; } catch(e){ return true; } }
+function setCoachDone(){ try { localStorage.setItem(COACH_KEY, "1"); } catch(e){} }
+let cfg = loadCfg();
+
+/* ============ dom ============ */
+const $ = id => document.getElementById(id);
+
+function buildSky(){
+  const sky = $("sky");
+  for (let i = 0; i < 42; i++){
+    const s = document.createElement("div");
+    s.className = "star";
+    s.style.left = (Math.random() * 100) + "%";
+    s.style.top = (Math.random() * 70) + "%";
+    s.style.animationDelay = (Math.random() * 3) + "s";
+    sky.appendChild(s);
+  }
+  $("moon").innerHTML = pixSvg(MOON, PAL, 5);
+  $("train").innerHTML = pixSvg(TRAIN, PAL, 4);
+}
+
+function fillCfgUI(){
+  const sl = $("selLine");
+  sl.innerHTML = Object.keys(LINES).map(c => '<option value="' + c + '">' + LINES[c].name + "</option>").join("");
+  const fillSta = () => {
+    const stas = LINES[sl.value].stas;
+    $("selSta").innerHTML = stas.map(([c, n]) => '<option value="' + c + '">' + n + "</option>").join("");
+    // UP = towards the last station in the array, DOWN = towards the first
+    $("selDir").innerHTML =
+      '<option value="UP">往' + stas[stas.length - 1][1] + " 方向</option>" +
+      '<option value="DOWN">往' + stas[0][1] + " 方向</option>";
+  };
+  sl.onchange = fillSta;
+  if (cfg){ sl.value = cfg.line; fillSta(); $("selSta").value = cfg.sta; $("selDir").value = cfg.dir || "UP"; $("inTime").value = cfg.time; }
+  else fillSta();
+}
+
+/* the cfgbox lives in two homes: the stage (first run) or the overlay (editing) */
+function placeCfg(){
+  const box = document.querySelector(".cfgbox");
+  if (!cfg){
+    document.body.classList.add("nocfg");
+    $("onboardSlot").appendChild(box);
+    $("cfg").classList.add("hide");
+  } else {
+    document.body.classList.remove("nocfg");
+    $("cfg").appendChild(box);
+  }
+}
+function openEdit(){
+  setCoachDone();
+  fillCfgUI();
+  $("cfg").classList.remove("hide");
+}
+
+/* ============ learned last trains (night watcher dataset) ============ */
+const LEARNED_URL = "https://raw.githubusercontent.com/ecthink/last-train/main/data/last-trains.json";
+let learned = {};
+async function fetchLearned(){
+  try {
+    const res = await fetch(LEARNED_URL, { cache: "no-store" });
+    if (res.ok) learned = await res.json();
+  } catch(e){ /* offline or not yet published — fallback time is used */ }
+}
+// effective last-train time: observed beats fallback
+function effTime(){
+  const e = cfg && learned[cfg.line + "-" + cfg.sta + "-" + (cfg.dir || "UP")];
+  if (e && e.time) return { time: e.time, tag: "實測 · " + e.nights + " 晚" };
+  return { time: cfg.time, tag: "後備值" };
+}
+
+/* ============ live next trains ============ */
+let liveTimer = null;
+async function fetchLive(){
+  if (!cfg) return;
+  try {
+    const res = await fetch("https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" +
+      cfg.line + "&sta=" + cfg.sta + "&lang=tc");
+    const j = await res.json();
+    const d = j && j.data && j.data[cfg.line + "-" + cfg.sta];
+    if (!d){ $("live").innerHTML = ""; return; }
+    const chip = trains => trains.slice(0, 3).map(t =>
+      t.ttnt === "0" || t.ttnt === 0 ? '<span class="now">埋緊站</span>' : "<b>" + t.ttnt + "</b> 分"
+    ).join(" · ");
+    let html = "";
+    for (const dir of ["UP", "DOWN"]){
+      if (d[dir] && d[dir].length){
+        const dest = STA_NAME[d[dir][0].dest] || d[dir][0].dest;
+        html += '<div class="chip">往' + dest + "：" + chip(d[dir]) + "</div>";
+      }
+    }
+    $("live").innerHTML = html || '<div class="chip">今晚已經冇車</div>';
+  } catch(e){ $("live").innerHTML = ""; }
+}
+
+/* ============ main loop ============ */
+let lastPhase = null;
+function tick(){
+  if (!cfg) return;
+  const now = new Date();
+  const et = effTime();
+  const target = nextOccurrence(now, et.time);
+  const ms = target - now;
+  const hoursUntil = ms / 3600000;
+  const phase = phaseFor(hoursUntil);
+
+  document.body.className = "phase-" + phase;
+  const stas = LINES[cfg.line].stas;
+  const destName = (cfg.dir || "UP") === "UP" ? stas[stas.length - 1][1] : stas[0][1];
+  $("where").innerHTML =
+    '<span class="cap" role="button" tabindex="0" title="撳一下改站" style="background:' + LINE_COLOR[cfg.line] + '">' +
+      STA_NAME[cfg.sta] + '<span class="pen">✎</span></span>' +
+    "<span>往" + destName + " · 尾班車 " + et.time + "（" + et.tag + "）</span>" +
+    (coachDone() ? "" : '<div id="coach">撳站名可以隨時改</div>');
+
+  if (phase === "missed"){
+    $("count").textContent = "聽朝見。";
+    $("mood").textContent = MISSED_SUB;
+  } else {
+    $("count").textContent = fmtLeft(ms);
+    $("mood").textContent = MOODS[phase];
+  }
+
+  // moon rises as the night shortens (top 55% → 6%)
+  const p = Math.min(1, Math.max(0, 1 - hoursUntil / 4));
+  $("moon").style.top = (55 - p * 49) + "%";
+  // train approaches departure across the final 2 hours (5% → 82%)
+  const tp = Math.min(1, Math.max(0, 1 - hoursUntil / 2));
+  $("train").style.left = (5 + tp * 77) + "%";
+
+  if (phase !== lastPhase){ lastPhase = phase; fetchLive(); }
+}
+
+/* ============ events ============ */
+$("saveCfg").onclick = () => {
+  cfg = { line: $("selLine").value, sta: $("selSta").value, dir: $("selDir").value || "UP", time: $("inTime").value || "00:30" };
+  saveCfg(cfg);
+  placeCfg();
+  $("cfg").classList.add("hide");
+  lastPhase = null;
+  tick();
+  fetchLive();
+};
+$("cfgClose").onclick = () => { if (cfg) $("cfg").classList.add("hide"); };
+$("where").addEventListener("click", e => { if (e.target.closest(".cap")) openEdit(); });
+$("where").addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.closest(".cap")) openEdit();
+});
+
+buildSky();
+fillCfgUI();
+placeCfg();
+tick();
+setInterval(tick, 1000);
+liveTimer = setInterval(fetchLive, 30000);
+fetchLive();
+fetchLearned();
+setInterval(fetchLearned, 6 * 3600000);
+</script>
+</body>
+</html>
