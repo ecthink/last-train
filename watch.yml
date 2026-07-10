@@ -1,0 +1,32 @@
+name: night watcher 夜間觀察者
+
+on:
+  schedule:
+    - cron: "*/10 15-17 * * *"   # 23:00–01:50 HKT — watch the network wind down
+    - cron: "0,15,30 18 * * *"   # 02:00–02:30 HKT — finalize tonight's record
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watcher
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: observe the network
+        run: node collect.mjs
+      - name: commit tonight's observations
+        run: |
+          git config user.name "night-watcher"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "🌙 observations $(TZ=Asia/Hong_Kong date +'%m-%d %H:%M') HKT"
+          git push
