@@ -9,7 +9,7 @@ last trains — learned by observation, not copied from a timetable. It refreshe
 itself nightly and automatically captures special timetables (festivals, typhoons,
 extended service).
 
-**App:** https://last-train.vercel.app · a full-screen countdown to your last train home.
+**App:** https://last-train-smoky.vercel.app · a full-screen countdown to your last train home.
 
 - `collect.mjs` — the watcher (no dependencies, Node 20)
 - `.github/workflows/watch.yml` — the nightly schedule
