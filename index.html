@@ -2,57 +2,43 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>尾班車 Last Train</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
   :root{
     --ink:#e8e4d8; --dim:#8b93a8; --accent:#f6d13b; --panel:#131c2e;
-    color-scheme:dark; /* native controls (time-picker icon, select arrows) render light */
+    color-scheme:dark;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0; color:var(--ink); overflow:hidden;
+    margin:0; color:var(--ink); overflow:hidden; background:#0b1626;
     font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang TC","Microsoft JhengHei",sans-serif;
-    transition:background 2.5s ease;
-    background:linear-gradient(#0b1626, #101f33);
   }
-  /* ---- phases drive the whole sky ---- */
-  body.phase-calm   {background:linear-gradient(#0b1626 0%, #101f33 80%, #16233c 100%)}
-  body.phase-settle {background:linear-gradient(#10203a 0%, #16294a 80%, #1d3156 100%)}
-  body.phase-aware  {background:linear-gradient(#1a2547 0%, #2a2a55 80%, #37305e 100%)}
-  body.phase-hurry  {background:linear-gradient(#3a2246 0%, #5c2b3a 80%, #6d3138 100%)}
-  body.phase-run    {background:linear-gradient(#5e1f24 0%, #8a2430 80%, #9c2a34 100%)}
-  body.phase-missed {background:linear-gradient(#04060c 0%, #070a12 100%)}
-
-  .sky{position:fixed; inset:0; pointer-events:none}
-  .star{position:absolute; width:2px; height:2px; background:#dfe6f5; opacity:.7; animation:tw 3s infinite}
-  @keyframes tw{0%,100%{opacity:.75}50%{opacity:.15}}
-  body.phase-run .star{opacity:.25}
-  body.phase-missed .star{opacity:.9}
-  #moon{position:absolute; right:12%; transition:top 3s ease; image-rendering:pixelated}
+  /* the whole world lives on one pixel canvas */
+  #scene{position:fixed; inset:0; width:100%; height:100%; image-rendering:pixelated}
 
   .wrap{
     position:relative; height:100%; max-width:720px; margin:0 auto;
-    padding:26px 20px; display:flex; flex-direction:column; z-index:1;
+    padding:calc(22px + env(safe-area-inset-top)) 20px calc(16px + env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; z-index:1;
   }
-  header{display:flex; justify-content:space-between; align-items:baseline}
+  header{display:flex; justify-content:space-between; align-items:baseline; gap:10px}
   h1{
     font-family:'Press Start 2P',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang TC","Microsoft JhengHei",sans-serif;
     font-size:15px; margin:0; letter-spacing:2px; color:var(--ink);
   }
   h1 span{color:var(--accent)}
-  #gear{
-    background:none; border:2px solid rgba(232,228,216,.35); color:var(--ink);
-    font:inherit; font-size:12px; padding:5px 10px; cursor:pointer; border-radius:2px;
+  #snd{
+    background:none; border:2px solid rgba(232,228,216,.35); color:var(--dim);
+    font-family:'Press Start 2P',monospace; font-size:10px; padding:6px 9px; cursor:pointer; border-radius:2px;
   }
-  #gear:hover{border-color:var(--accent); color:var(--accent)}
+  #snd.on{color:var(--accent); border-color:var(--accent)}
+  #snd:hover{border-color:var(--accent)}
 
   .stage{flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center}
   #where{color:var(--dim); font-size:14px; letter-spacing:1px; display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:center}
-  /* station signage capsule — the familiar shape, in our own pixel world.
-     It IS the edit control: permanent ✎ (no hover needed on touch), tap feedback. */
   #where .cap{
     color:#fff; font-weight:800; font-size:15px; letter-spacing:2px;
     padding:4px 16px; border-radius:15px; border:2px solid rgba(255,255,255,.85);
@@ -63,19 +49,16 @@
   @media (hover:hover){ #where .cap:hover{filter:brightness(1.15)} }
   #coach{width:100%; font-size:11.5px; color:var(--dim); opacity:.9; margin-top:2px}
 
-  /* first-run: the stage itself is the onboarding */
   body.nocfg .clockbit{display:none}
   #onboardSlot{width:100%; display:flex; justify-content:center}
   body.nocfg #cfgClose{display:none}
-  .yline{position:absolute; bottom:34px; left:0; right:0; height:4px;
-    background:repeating-linear-gradient(90deg, #e8c53a 0 22px, #b89722 22px 26px); opacity:.8}
   #count{
     font-family:'Press Start 2P',"Courier New",monospace;
     font-size:min(11vw, 64px); margin:18px 0 10px; letter-spacing:2px;
     color:var(--ink); text-shadow:0 0 24px rgba(246,209,59,.12);
   }
-  body.phase-run #count{animation:pulse 1s infinite; color:#ffd9d9}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+  body.phase-run #count{animation:pulse 1s steps(2) infinite; color:#ffd9d9}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
   #mood{font-size:17px; color:var(--ink); opacity:.9; min-height:26px}
   body.phase-run #mood{font-size:24px; font-weight:800; color:#ffe08a}
 
@@ -90,21 +73,12 @@
   #live .chip b{color:var(--ink); font-weight:600}
   #live .now{color:var(--accent)}
 
-  /* ---- track + train ---- */
-  .trackzone{height:84px; position:relative; margin:0 -20px}
-  .track{position:absolute; bottom:26px; left:0; right:0; height:3px; background:rgba(139,147,168,.4)}
-  .track:after{
-    content:""; position:absolute; top:5px; left:0; right:0; height:2px;
-    background-image:linear-gradient(90deg, rgba(139,147,168,.35) 0 12px, transparent 12px 26px);
-    background-size:26px 2px;
-  }
-  #train{position:absolute; bottom:31px; transition:left 4s linear; image-rendering:pixelated}
-  body.phase-missed #train{display:none}
+  /* reserve the scene's platform strip so DOM never covers the world */
+  .groundgap{height:var(--ground, 118px)}
 
   footer{color:var(--dim); font-size:11.5px; text-align:center; opacity:.75}
   footer a{color:var(--dim)}
 
-  /* ---- config panel ---- */
   #cfg{
     position:fixed; inset:0; background:rgba(4,7,13,.82); z-index:5;
     display:flex; align-items:center; justify-content:center; padding:20px;
@@ -138,11 +112,12 @@
 </style>
 </head>
 <body class="phase-calm">
-<div class="sky" id="sky"><div id="moon"></div></div>
+<canvas id="scene"></canvas>
 
 <div class="wrap">
   <header>
     <h1>尾班車 <span>LAST TRAIN</span></h1>
+    <button id="snd" aria-label="聲音開關" title="聲音">♪ OFF</button>
   </header>
 
   <div class="stage">
@@ -153,8 +128,8 @@
     <div id="live" class="clockbit"></div>
   </div>
 
-  <div class="trackzone"><div class="yline"></div><div class="track"></div><div id="train"></div></div>
   <footer>非官方項目，與香港鐵路有限公司無關 · 即時班次及實測數據：data.gov.hk 開放數據 · 時間僅供參考</footer>
+  <div class="groundgap"></div>
 </div>
 
 <div id="cfg" class="hide">
@@ -194,7 +169,6 @@ const LINES = {
 };
 const STA_NAME = {};
 for (const code in LINES) for (const [c, n] of LINES[code].stas) STA_NAME[c] = n;
-// line colours as colour-coding (functional identification, same as any transit app)
 const LINE_COLOR = {
   TKL:"#7D499D", ISL:"#0075C2", TWL:"#ED1D24", KTL:"#00A040", TML:"#9A6633",
   EAL:"#5EB7E8", SIL:"#BAC429", TCL:"#F7943E", AEL:"#1C7670", DRL:"#F173AC"
@@ -202,7 +176,6 @@ const LINE_COLOR = {
 
 /* ============ pure logic ============ */
 /*PURE-START*/
-// next occurrence of "HH:MM" strictly after `now`
 function nextOccurrence(now, hhmm){
   const [h, m] = hhmm.split(":").map(Number);
   const t = new Date(now);
@@ -210,7 +183,6 @@ function nextOccurrence(now, hhmm){
   if (t <= now) t.setDate(t.getDate() + 1);
   return t;
 }
-// phase from hours remaining; >18h ⇒ the train just left (missed window)
 function phaseFor(hoursUntil){
   if (hoursUntil > 18) return "missed";
   const mins = hoursUntil * 60;
@@ -227,6 +199,15 @@ function fmtLeft(ms){
   const ss = String(s % 60).padStart(2, "0");
   return hh + ":" + mm + ":" + ss;
 }
+// deterministic PRNG so the starfield is the same sky every night
+function mulberry32(a){
+  return function(){
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
 /*PURE-END*/
 
 const MOODS = {
@@ -239,33 +220,25 @@ const MOODS = {
 };
 const MISSED_SUB = "尾班車已經開出 · 而家淨返：的士 ／ 通宵巴士 ／ 訓公司";
 
-/* ============ pixel sprites ============ */
-function pixSvg(map, pal, px){
-  let r = "";
-  for (let y = 0; y < map.length; y++)
-    for (let x = 0; x < map[y].length; x++){
-      const c = map[y][x];
-      if (c !== ".") r += '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="' + pal[c] + '"/>';
-    }
-  return '<svg width="' + map[0].length * px + '" height="' + map.length * px +
-    '" viewBox="0 0 ' + map[0].length + ' ' + map.length + '" shape-rendering="crispEdges">' + r + "</svg>";
-}
-const MOON = [
-  "..yyyy..",".yyyyyy.","yyyycyyy","yyyyyyyy","ycyyyyyy","yyyyycyy",".yyyyyy.","..yyyy.."
-];
-const TRAIN = [
-  ".bbbbbbbbbbbbbbbbb..",
-  ".bwwbbwwbbwwbbwwbb..",
-  ".bwwbbwwbbwwbbwwbb..",
-  ".bbbbbbbbbbbbbbbbb..",
-  ".rrrrrrrrrrrrrrrrr..",
-  "..kk....kk....kk...."
-];
-const PAL = { y:"#f4ecd0", c:"#d9cfae", b:"#c9ced6", w:"#ffd76a", r:"#d64545", k:"#20242c" };
+/* ============ sprites (source of truth: pixel-lab/sprites/, GridFab) ============ */
+const SPRITES = {"idle0":{"pal":{"a":"#8c6a3a","b":"#5578ab","c":"#3a5a8c","d":"#263f66","e":"#2a3040","f":"#141a26","g":"#222c3e","h":"#c49a72","i":"#0c111c","j":"#e8c49a"},"rows":["...ffff.....","..feeeef....","..feeeeef...","..fejjjjf...","..fejjfjf...","...fhjjf....","...fccccf...","..fccccbcf..","..facccbcf..","..facccbcf..","..fadcccdf..","...fddddf...","....ffff....","....fg.gf...","....fg.gf...","....fg.gf...","...fff.fff..","...iiiiiii.."]},"idle1":{"pal":{"a":"#8c6a3a","b":"#5578ab","c":"#3a5a8c","d":"#263f66","e":"#2a3040","f":"#141a26","g":"#222c3e","h":"#c49a72","i":"#0c111c","j":"#e8c49a"},"rows":["............","...ffff.....","..feeeef....","..feeeeef...","..fejjjjf...","..fejjfjf...","...fhjjf....","...fccccf...","..fccccbcf..","..facccbcf..","..facccbcf..","..fadcccdf..","....ffff....","....fg.gf...","....fg.gf...","....fg.gf...","...fff.fff..","...iiiiiii.."]},"idle2":{"pal":{"a":"#8c6a3a","b":"#5578ab","c":"#3a5a8c","d":"#263f66","e":"#2a3040","f":"#141a26","g":"#222c3e","h":"#c49a72","i":"#0c111c","j":"#e8c49a"},"rows":["...ffff.....","..feeeef....","..feeeeef...","..fejjjjf...","..fejjjjf...","...fhjjf....","...fccccf...","..fccccbcf..","..facccbcf..","..facccbcf..","..fadcccdf..","...fddddf...","....ffff....","....fg.gf...","....fg.gf...","....fg.gf...","...fff.fff..","...iiiiiii.."]},"run0":{"pal":{"a":"#8c6a3a","b":"#5578ab","c":"#3a5a8c","d":"#263f66","e":"#2a3040","f":"#141a26","g":"#222c3e","h":"#c49a72","i":"#0c111c","j":"#e8c49a"},"rows":["...ffff.....","..feeeef....","..feeeeef...","..fejjjjf...","..fejjfjf...","...fhjjf....","...fccccf...","..fccccbcf..","..facccbcf..","..facccbcf..","..fadcccdf..","...fddddf...","....ffff....","...fgg..gf..","..fgg...gf..","..fg....fgf.",".fff.....ff.","..iiiiiiii.."]},"run1":{"pal":{"a":"#8c6a3a","b":"#5578ab","c":"#3a5a8c","d":"#263f66","e":"#2a3040","f":"#141a26","g":"#222c3e","h":"#c49a72","i":"#0c111c","j":"#e8c49a"},"rows":["...ffff.....","..feeeef....","..feeeeef...","..fejjjjf...","..fejjfjf...","...fhjjf....","...fccccf...","..fccccbcf..","..facccbcf..","..facccbcf..","..fadcccdf..","...fddddf...","....ffff....","...fggg.....","....fgg.....","....fgfg....","...ff.ff....","...iiiii...."]},"sit":{"pal":{"a":"#8c6a3a","b":"#5578ab","c":"#3a5a8c","d":"#263f66","e":"#2a3040","f":"#141a26","g":"#222c3e","h":"#c49a72","i":"#0c111c","j":"#e8c49a"},"rows":["....ffff....","...feeeef...","...feeeeef..","...fejjfjf..","....fhjjf...","...fccccf...","..fccccbcf..","..facccbcf..","..fddcccf...","..fggffggf..","..fggffggf..","...ff..fff..","............","..iiiiiiii.."]},"train":{"pal":{"a":"#c3c9d4","b":"#8e97a8","c":"#20242c","d":"#fff2b8","e":"#141a26","f":"#c94040","g":"#c9a441","h":"#ffd76a"},"rows":["..eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...",".eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaae..",".eaahhhahhhbahhhahhhbahhhahhhbahhhahhhbhhhe.",".eaahhhahhhbahhhahhhbahhhahhhbahhhahhhbhhhe.",".eaahhhahhhbahhhahhhbahhhahhhbahhhahhhbhhhe.",".eaagggggggbagggggggbagggggggbagggggggbggge.",".eaaaaaaaaabaaaaaaaabaaaaaaaabaaaaaaaabaaae.",".effffffffffffffffffffffffffffffffffffffffe.",".eaaaaaaaaabaaaaaaaabaaaaaaaabaaaaaaaabaahd.",".ebbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbe.","..eeecceeeeeeecceeeeeeecceeeeeeecceeeeecce..",".....ee.......ee.......ee.......ee.....ee..."]},"lamp":{"pal":{"a":"#38415c","b":"#141a26","c":"#2c3446","d":"#1c2333","e":"#0c111c"},"rows":["..bbbbbb..","..baaaab..","..baddab..","..baddab..","..baaaab..","..bbaabb..","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","....bb....","...bccb...","..eeeeee.."]},"moon":{"pal":{"y":"#f4ecd0","c":"#d9cfae"},"rows":["..yyyy..",".yyyyyy.","yyyycyyy","yyyyyyyy","ycyyyyyy","yyyyycyy",".yyyyyy.","..yyyy.."]}};
+
+/* ============ scene palettes: 5 sky bands per phase, hue-shifted ramps ============ */
+const SKY = {
+  calm:   ["#060d1a","#0b1626","#101f33","#152641","#1a2d4c"],
+  settle: ["#0a1730","#10203a","#16294a","#1d3156","#243a63"],
+  aware:  ["#141d3d","#1a2547","#232a52","#2d2f5b","#373463"],
+  hurry:  ["#2a1c38","#3a2246","#4c2742","#5e2c3c","#6d3138"],
+  run:    ["#421a20","#5e1f24","#78222b","#8a2430","#9c2a34"],
+  missed: ["#02040a","#04060c","#05080f","#070a12","#090d17"]
+};
+const LAMP_COLOR = { calm:"#58c470", settle:"#58c470", aware:"#58c470", hurry:"#e0a83a", run:"#d64545", missed:null };
+const STAR_TONES = ["#dfe6f5","#9fb0d8","#6b7ea8"];
 
 /* ============ config ============ */
 const CFG_KEY = "lasttrain.cfg.v1";
 const COACH_KEY = "lasttrain.coach.v1";
+const SND_KEY = "lasttrain.snd.v1";
 function loadCfg(){ try { return JSON.parse(localStorage.getItem(CFG_KEY) || "null"); } catch(e){ return null; } }
 function saveCfg(c){ try { localStorage.setItem(CFG_KEY, JSON.stringify(c)); } catch(e){} }
 function coachDone(){ try { return localStorage.getItem(COACH_KEY) === "1"; } catch(e){ return true; } }
@@ -275,19 +248,238 @@ let cfg = loadCfg();
 /* ============ dom ============ */
 const $ = id => document.getElementById(id);
 
-function buildSky(){
-  const sky = $("sky");
-  for (let i = 0; i < 42; i++){
-    const s = document.createElement("div");
-    s.className = "star";
-    s.style.left = (Math.random() * 100) + "%";
-    s.style.top = (Math.random() * 70) + "%";
-    s.style.animationDelay = (Math.random() * 3) + "s";
-    sky.appendChild(s);
-  }
-  $("moon").innerHTML = pixSvg(MOON, PAL, 5);
-  $("train").innerHTML = pixSvg(TRAIN, PAL, 4);
+/* ============ mock hooks (audit page / design review) ============ */
+const Q = new URLSearchParams(location.search);
+const MOCK_PHASE = Q.get("phase");           // calm|settle|aware|hurry|run|missed
+const MOCK_MINS = Q.get("mins") ? Number(Q.get("mins")) : null;
+// design-review mode: a mock phase works without setup (demo cfg, not saved)
+if (MOCK_PHASE && !cfg) cfg = { line: "TKL", sta: "HAH", dir: "UP", time: "00:30", demo: true };
+
+/* ============ the pixel stage ============ */
+const cv = $("scene");
+const ctx = cv ? cv.getContext("2d") : null;
+let SCALE = 3, W = 0, H = 0;               // logical pixel grid
+let stars = [], meteor = null, trail = [];
+let animFrame = 0;                          // global 8fps step counter
+let scenePhase = "calm", sceneProgress = { moon: 0, train: 0 };
+
+function sizeScene(){
+  if (!ctx) return;
+  const vw = window.innerWidth, vh = window.innerHeight;
+  SCALE = Math.max(2, Math.floor(vw / 200));
+  W = Math.ceil(vw / SCALE); H = Math.ceil(vh / SCALE);
+  cv.width = W; cv.height = H;
+  cv.style.width = W * SCALE + "px"; cv.style.height = H * SCALE + "px";
+  document.documentElement.style.setProperty("--ground", (46 * SCALE) + "px");
+  seedStars();
 }
+function seedStars(){
+  const rnd = mulberry32(20260710);
+  stars = [];
+  const n = Math.floor(W * H / 260);
+  for (let i = 0; i < n; i++){
+    stars.push({
+      x: Math.floor(rnd() * W), y: Math.floor(rnd() * H * 0.62),
+      cls: rnd() < 0.5 ? 0 : (rnd() < 0.75 ? 1 : 2),   // 0 dust, 1 spark, 2 gleam
+      ph: Math.floor(rnd() * 8)
+    });
+  }
+}
+function px(x, y, c){ ctx.fillStyle = c; ctx.fillRect(x, y, 1, 1); }
+function rect(x, y, w, h, c){ ctx.fillStyle = c; ctx.fillRect(x, y, w, h); }
+
+// graduated dither seam between band colours (75/50/25 — no zipper rows)
+function drawSky(phase){
+  const bands = SKY[phase];
+  const bh = Math.ceil(H * 0.999 / bands.length);
+  for (let i = 0; i < bands.length; i++) rect(0, i * bh, W, bh, bands[i]);
+  for (let i = 1; i < bands.length; i++){
+    const yb = i * bh, up = bands[i - 1], dn = bands[i];
+    for (let x = 0; x < W; x++){
+      if ((x + yb) % 4 !== 0) px(x, yb - 1, (x + yb) % 2 ? up : dn);       // 75% lower tone above line? blended row
+      if ((x + yb) % 2 === 0) px(x, yb, up);                                // 50%
+      if ((x + yb) % 4 === 0) px(x, yb + 1, up);                            // 25%
+    }
+  }
+}
+function drawStars(phase){
+  const dimmed = phase === "run" ? 1 : 0;
+  const rich = phase === "missed";
+  for (const s of stars){
+    const step = (animFrame + s.ph) % 8;
+    if (s.cls === 0){ if (!dimmed) px(s.x, s.y, STAR_TONES[2]); continue; }
+    if (s.cls === 1){
+      const on = step < (rich ? 7 : 5);
+      if (on && !dimmed) px(s.x, s.y, step < 2 ? STAR_TONES[0] : STAR_TONES[1]);
+      continue;
+    }
+    // gleam: plus-shape pulse
+    const t = step < 4 ? step : 7 - step;
+    if (dimmed && t > 1) continue;
+    px(s.x, s.y, STAR_TONES[0]);
+    if (t >= 2){ px(s.x - 1, s.y, STAR_TONES[1]); px(s.x + 1, s.y, STAR_TONES[1]); px(s.x, s.y - 1, STAR_TONES[1]); px(s.x, s.y + 1, STAR_TONES[1]); }
+    if (t >= 3){ px(s.x - 2, s.y, STAR_TONES[2]); px(s.x + 2, s.y, STAR_TONES[2]); }
+  }
+}
+// meteor with anatomy: bright head, ramped tail, 2-frame persistence
+function stepMeteor(phase){
+  if (phase === "calm" || phase === "settle"){
+    if (!meteor && Math.random() < 0.004){
+      meteor = { x: Math.floor(W * (0.2 + Math.random() * 0.6)), y: Math.floor(H * 0.08), life: 14 };
+      trail = [];
+    }
+  } else { meteor = null; trail = []; }
+  if (!meteor) return;
+  trail.unshift({ x: meteor.x, y: meteor.y });
+  if (trail.length > 3) trail.pop();
+  meteor.x += 3; meteor.y += 2; meteor.life--;
+  if (meteor.life <= 0 || meteor.x > W || meteor.y > H * 0.7){ meteor = null; }
+}
+function drawMeteor(){
+  for (let i = trail.length - 1; i >= 0; i--){
+    const t = trail[i];
+    px(t.x, t.y, STAR_TONES[2]);
+  }
+  if (!meteor) return;
+  const dirs = [[0,0],[1,1],[-1,-1],[-2,-1],[-3,-2],[-4,-2]];
+  const tones = ["#fff6d8","#fff6d8","#dfe6f5","#9fb0d8","#6b7ea8","#6b7ea8"];
+  for (let i = 0; i < dirs.length; i++) px(meteor.x + dirs[i][0], meteor.y + dirs[i][1], tones[i]);
+}
+function drawSprite(S, ox, oy, flip, sc){
+  sc = sc || 1;
+  const pal = S.pal, rows = S.rows;
+  for (let y = 0; y < rows.length; y++){
+    const r = rows[y];
+    for (let x = 0; x < r.length; x++){
+      const c = r[x];
+      if (c === ".") continue;
+      ctx.fillStyle = pal[c];
+      ctx.fillRect(ox + (flip ? r.length - 1 - x : x) * sc, oy + y * sc, sc, sc);
+    }
+  }
+}
+function drawPlatform(phase){
+  const deckY = H - 46, faceY = H - 38, bedY = H - 28;
+  rect(0, deckY, W, 8, "#1b2536");                       // 月台面
+  rect(0, deckY, W, 1, "#2c3a52");                       // 面光邊
+  // 觸覺黃線：6 on / 3 off，2px 厚
+  for (let x = 0; x < W; x += 9){ rect(x, deckY + 2, 6, 2, "#e8c53a"); rect(x, deckY + 3, 6, 1, "#b89722"); }
+  rect(0, faceY, W, 10, "#121a29");                      // 月台立面
+  for (let x = 3; x < W; x += 14) rect(x, faceY + 2, 1, 6, "#1b2536");  // 立面坑
+  rect(0, bedY, W, 28, "#0a0f1a");                       // 路床
+  for (let x = 1; x < W; x += 7) rect(x, bedY + 4, 3, 20, "#141b2a");   // 枕木
+  rect(0, H - 22, W, 1, "#3a4358");                      // 軌1
+  rect(0, H - 10, W, 1, "#3a4358");                      // 軌2
+}
+function drawLamp(phase){
+  const lx = W - 26, ly = H - 46 - SPRITES.lamp.rows.length;
+  drawSprite(SPRITES.lamp, lx, ly, false);
+  const col = LAMP_COLOR[phase];
+  if (col){
+    rect(lx + 4, ly + 2, 2, 2, col);
+    // form-following halo: dither ring hugging the lamp head
+    const halo = [[3,1],[6,1],[2,2],[7,2],[3,4],[6,4],[4,5],[5,5]];
+    for (let i = (animFrame % 2); i < halo.length; i += 2) px(lx + halo[i][0], ly + halo[i][1], col);
+  }
+}
+function drawTrain(phase, tp){
+  if (phase === "missed") return;
+  const tw = SPRITES.train.rows[0].length * 2, th = SPRITES.train.rows.length * 2;
+  const x = Math.floor(-tw + (W + tw) * (0.05 + 0.85 * tp));
+  drawSprite(SPRITES.train, x, H - 6 - th, false, 2);
+}
+function drawWaiter(phase){
+  const gy = H - 46;   // 月台面
+  let S, seq;
+  if (phase === "missed"){ S = SPRITES.sit; drawSprite(S, Math.floor(W * 0.32), gy - S.rows.length + 1, false); return; }
+  if (phase === "run"){
+    S = animFrame % 2 ? SPRITES.run0 : SPRITES.run1;
+    drawSprite(S, Math.floor(W * 0.32) + (animFrame % 4), gy - S.rows.length + 1, false);
+    return;
+  }
+  const idleSeq = [SPRITES.idle0, SPRITES.idle1, SPRITES.idle0, SPRITES.idle2];
+  const speed = (phase === "hurry") ? 2 : 4;             // hurry 呼吸急啲
+  S = idleSeq[Math.floor(animFrame / speed) % 4];
+  drawSprite(S, Math.floor(W * 0.32), gy - S.rows.length + 1, false);
+}
+function drawMoon(hoursUntil){
+  const p = Math.min(1, Math.max(0, 1 - hoursUntil / 4));
+  const mx = Math.floor(W * 0.8), my = Math.floor((0.48 - p * 0.4) * H);
+  drawSprite(SPRITES.moon, mx, my, false, 2);
+}
+
+let lastStep = 0;
+function renderScene(ts){
+  requestAnimationFrame(renderScene);
+  if (!ctx || W === 0) return;
+  if (ts - lastStep < 1000 / 8) return;                 // 8fps 世界
+  lastStep = ts;
+  animFrame++;
+  const phase = scenePhase;
+  drawSky(phase);
+  drawStars(phase);
+  stepMeteor(phase); drawMeteor();
+  drawMoon(sceneProgress.hoursUntil ?? 6);
+  drawPlatform(phase);
+  drawTrain(phase, sceneProgress.train);
+  drawLamp(phase);
+  drawWaiter(phase);
+}
+
+/* ============ chiptune (muted by default; same timbre family) ============ */
+let AC = null, master = null, sndOn = false, bgmCursor = 0, bgmNext = 0, bgmTimer = null;
+function initAudio(){
+  if (AC) return;
+  AC = new (window.AudioContext || window.webkitAudioContext)();
+  master = AC.createGain(); master.gain.value = 0.16; master.connect(AC.destination);
+}
+function sq(freq, t0, dur, vol, duty){
+  const o = AC.createOscillator(), g = AC.createGain();
+  if (!duty || duty === 0.5) o.type = "square";
+  else {
+    const n = 32, re = new Float32Array(n), im = new Float32Array(n);
+    for (let i = 1; i < n; i++) re[i] = 2 / (i * Math.PI) * Math.sin(i * Math.PI * duty);
+    o.setPeriodicWave(AC.createPeriodicWave(re, im));
+  }
+  o.frequency.value = freq;
+  g.gain.setValueAtTime(0.10 * (vol || 1), t0);
+  g.gain.setTargetAtTime(0, t0 + dur * 0.7, 0.03);
+  o.connect(g); g.connect(master); o.start(t0); o.stop(t0 + dur + 0.1);
+}
+function tri(freq, t0, dur, vol){
+  const o = AC.createOscillator(), g = AC.createGain();
+  o.type = "triangle"; o.frequency.value = freq;
+  g.gain.setValueAtTime(0.13 * (vol || 1), t0);
+  g.gain.setTargetAtTime(0, t0 + dur * 0.8, 0.04);
+  o.connect(g); g.connect(master); o.start(t0); o.stop(t0 + dur + 0.1);
+}
+const NF = n => 440 * Math.pow(2, n / 12);
+// 原創八小節夜曲：疏落、掛住少少唔安樂
+const BGM_LEAD = [[0,1],[null,.5],[3,.5],[7,1],[null,1],[5,.5],[3,.5],[0,2],[null,2],
+                  [-2,1],[null,.5],[2,.5],[7,1],[null,1],[3,1],[0,2],[null,2]];
+function bgmTick(){
+  if (!sndOn || !AC) return;
+  const SPB = 60 / 66;
+  while (bgmNext < AC.currentTime + 0.4){
+    const [n, b] = BGM_LEAD[bgmCursor % BGM_LEAD.length];
+    if (n !== null){ sq(NF(n), bgmNext, b * SPB * 0.9, 0.7, 0.25); tri(NF(n - 24), bgmNext, b * SPB * 1.1, 0.8); }
+    bgmNext += b * SPB; bgmCursor++;
+  }
+}
+const SFX = {
+  aware(){ sq(NF(7), AC.currentTime, 0.07, 1, 0.25); },
+  hurry(){ sq(NF(7), AC.currentTime, 0.06, 1, 0.25); sq(NF(12), AC.currentTime + 0.09, 0.06, 1, 0.25); },
+  run(){ [0, 4, 7, 12].forEach((n, i) => sq(NF(n + 12), AC.currentTime + i * 0.05, 0.05, 1, 0.25)); },
+  missed(){ tri(NF(-5), AC.currentTime, 0.5, 1); tri(NF(-12), AC.currentTime + 0.3, 0.9, 1); }
+};
+function setSnd(on){
+  sndOn = on;
+  $("snd").textContent = on ? "♪ ON" : "♪ OFF";
+  $("snd").classList.toggle("on", on);
+  try { localStorage.setItem(SND_KEY, on ? "1" : "0"); } catch(e){}
+  if (on){ initAudio(); AC.resume(); bgmNext = AC.currentTime + 0.1; if (!bgmTimer) bgmTimer = setInterval(bgmTick, 150); }
+}
+$("snd").onclick = () => setSnd(!sndOn);
 
 function fillCfgUI(){
   const sl = $("selLine");
@@ -295,7 +487,6 @@ function fillCfgUI(){
   const fillSta = () => {
     const stas = LINES[sl.value].stas;
     $("selSta").innerHTML = stas.map(([c, n]) => '<option value="' + c + '">' + n + "</option>").join("");
-    // UP = towards the last station in the array, DOWN = towards the first
     $("selDir").innerHTML =
       '<option value="UP">往' + stas[stas.length - 1][1] + " 方向</option>" +
       '<option value="DOWN">往' + stas[0][1] + " 方向</option>";
@@ -305,7 +496,6 @@ function fillCfgUI(){
   else fillSta();
 }
 
-/* the cfgbox lives in two homes: the stage (first run) or the overlay (editing) */
 function placeCfg(){
   const box = document.querySelector(".cfgbox");
   if (!cfg){
@@ -324,15 +514,19 @@ function openEdit(){
 }
 
 /* ============ learned last trains (night watcher dataset) ============ */
-const LEARNED_URL = "https://raw.githubusercontent.com/ecthink/last-train/main/data/last-trains.json";
+// same-origin first (site deploys with the dataset once git-connected);
+// GitHub raw as fallback for local files / older deployments
+const LEARNED_URLS = ["data/last-trains.json",
+  "https://raw.githubusercontent.com/ecthink/last-train/main/data/last-trains.json"];
 let learned = {};
 async function fetchLearned(){
-  try {
-    const res = await fetch(LEARNED_URL, { cache: "no-store" });
-    if (res.ok) learned = await res.json();
-  } catch(e){ /* offline or not yet published — fallback time is used */ }
+  for (const url of LEARNED_URLS){
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (res.ok){ learned = await res.json(); return; }
+    } catch(e){}
+  }
 }
-// effective last-train time: observed beats fallback
 function effTime(){
   const e = cfg && learned[cfg.line + "-" + cfg.sta + "-" + (cfg.dir || "UP")];
   if (e && e.time) return { time: e.time, tag: "實測 · " + e.nights + " 晚" };
@@ -366,22 +560,37 @@ async function fetchLive(){
 /* ============ main loop ============ */
 let lastPhase = null;
 function tick(){
-  if (!cfg) return;
+  if (!cfg && !MOCK_PHASE) return;
   const now = new Date();
-  const et = effTime();
-  const target = nextOccurrence(now, et.time);
-  const ms = target - now;
-  const hoursUntil = ms / 3600000;
-  const phase = phaseFor(hoursUntil);
+  let ms, hoursUntil, phase, et = { time: "00:30", tag: "示範" };
+  if (MOCK_PHASE){
+    phase = MOCK_PHASE;
+    const mins = MOCK_MINS ?? ({ calm: 300, settle: 90, aware: 45, hurry: 20, run: 6, missed: -1 })[phase] ?? 60;
+    ms = mins * 60000; hoursUntil = mins / 60;
+    if (phase === "missed"){ ms = 0; hoursUntil = 24; }
+    if (cfg) et = effTime();
+  } else {
+    et = effTime();
+    const target = nextOccurrence(now, et.time);
+    ms = target - now;
+    hoursUntil = ms / 3600000;
+    phase = phaseFor(hoursUntil);
+  }
 
-  document.body.className = "phase-" + phase;
-  const stas = LINES[cfg.line].stas;
-  const destName = (cfg.dir || "UP") === "UP" ? stas[stas.length - 1][1] : stas[0][1];
-  $("where").innerHTML =
-    '<span class="cap" role="button" tabindex="0" title="撳一下改站" style="background:' + LINE_COLOR[cfg.line] + '">' +
-      STA_NAME[cfg.sta] + '<span class="pen">✎</span></span>' +
-    "<span>往" + destName + " · 尾班車 " + et.time + "（" + et.tag + "）</span>" +
-    (coachDone() ? "" : '<div id="coach">撳站名可以隨時改</div>');
+  document.body.className = "phase-" + phase + (cfg ? "" : " nocfg");
+  scenePhase = phase;
+  sceneProgress.hoursUntil = hoursUntil;
+  sceneProgress.train = Math.min(1, Math.max(0, 1 - hoursUntil / 2));
+
+  if (cfg){
+    const stas = LINES[cfg.line].stas;
+    const destName = (cfg.dir || "UP") === "UP" ? stas[stas.length - 1][1] : stas[0][1];
+    $("where").innerHTML =
+      '<span class="cap" role="button" tabindex="0" title="撳一下改站" style="background:' + LINE_COLOR[cfg.line] + '">' +
+        STA_NAME[cfg.sta] + '<span class="pen">✎</span></span>' +
+      "<span>往" + destName + " · 尾班車 " + et.time + "（" + et.tag + "）</span>" +
+      (coachDone() ? "" : '<div id="coach">撳站名可以隨時改</div>');
+  }
 
   if (phase === "missed"){
     $("count").textContent = "聽朝見。";
@@ -391,14 +600,11 @@ function tick(){
     $("mood").textContent = MOODS[phase];
   }
 
-  // moon rises as the night shortens (top 55% → 6%)
-  const p = Math.min(1, Math.max(0, 1 - hoursUntil / 4));
-  $("moon").style.top = (55 - p * 49) + "%";
-  // train approaches departure across the final 2 hours (5% → 82%)
-  const tp = Math.min(1, Math.max(0, 1 - hoursUntil / 2));
-  $("train").style.left = (5 + tp * 77) + "%";
-
-  if (phase !== lastPhase){ lastPhase = phase; fetchLive(); }
+  if (phase !== lastPhase){
+    if (lastPhase && sndOn && AC && SFX[phase]) SFX[phase]();
+    lastPhase = phase;
+    fetchLive();
+  }
 }
 
 /* ============ events ============ */
@@ -416,8 +622,12 @@ $("where").addEventListener("click", e => { if (e.target.closest(".cap")) openEd
 $("where").addEventListener("keydown", e => {
   if (e.key === "Enter" && e.target.closest(".cap")) openEdit();
 });
+window.addEventListener("resize", sizeScene);
 
-buildSky();
+/* ============ boot ============ */
+try { if (localStorage.getItem(SND_KEY) === "1"){ /* 尊重瀏覽器手勢規則：唔自動開聲，只還原個掣提示 */ } } catch(e){}
+sizeScene();
+requestAnimationFrame(renderScene);
 fillCfgUI();
 placeCfg();
 tick();

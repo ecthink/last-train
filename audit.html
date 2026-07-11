@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尾班車 — 六個時刻 AUDIT</title>
+<style>
+  body{margin:0; background:#0b1220; color:#e8e4d8; padding:26px 20px 50px;
+    font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang TC","Microsoft JhengHei",sans-serif}
+  h1{font-size:16px; letter-spacing:2px; margin:0 0 4px}
+  p{color:#8b93a8; font-size:12.5px; margin:0 0 22px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:18px; max-width:1560px; margin:0 auto}
+  .cell{border:2px solid #313a49; border-radius:6px; overflow:hidden; background:#0d1117}
+  .cell header{display:flex; justify-content:space-between; align-items:baseline; padding:8px 12px; background:#141c2b}
+  .cell b{font-size:13.5px; letter-spacing:1px}
+  .cell span{font-size:11.5px; color:#8b93a8}
+  iframe{width:100%; height:560px; border:0; display:block; background:#000}
+</style>
+</head>
+<body>
+<h1>尾班車 — 六個時刻 AUDIT</h1>
+<p>每格都係真 app（唔使 set 站，demo 模式）。個世界唔係跟日頭夜晚——係跟「你仲有幾耐尾班車」變裝。</p>
+<div class="grid" id="grid"></div>
+<script>
+const STATES = [
+  ["calm",   "夜還長（&gt;2 小時）— 深藍、滿天星、月未升"],
+  ["settle", "仲有時間（&lt;2 小時）— 藍加深、火車入站"],
+  ["aware",  "開始執嘢（&lt;1 小時）— 紫調、月升緊"],
+  ["hurry",  "係時候埋單（&lt;30 分）— 酒紅、燈轉黃、呼吸急"],
+  ["run",    "走啦！！（&lt;10 分）— 全屏紅、星退場、燈轉紅、人起跑"],
+  ["missed", "聽朝見。— 近黑、星最盛、車走咗、人坐低、燈熄"]
+];
+document.getElementById("grid").innerHTML = STATES.map(([ph, desc]) =>
+  '<div class="cell"><header><b>' + ph + "</b><span>" + desc + "</span></header>" +
+  '<iframe loading="lazy" src="last-train.html?phase=' + ph + '"></iframe></div>').join("");
+</script>
+</body>
+</html>
