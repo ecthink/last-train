@@ -41,7 +41,15 @@ export function medianTime(times){
   const sorted = [...times].sort((a, b) => nightMinutes(a) - nightMinutes(b));
   return sorted[Math.floor((sorted.length - 1) / 2)];
 }
-// from one API payload, the furthest-future scheduled train per direction
+// a scheduled time only counts as a LAST-train candidate inside the night
+// window 21:00–02:59. After close the API starts advertising tomorrow's FIRST
+// trains (06:xx) — without this filter they string-sort above the real last
+// train and poison the dataset (learned 12 Jul: 205/220 entries were 頭班車).
+export function isNightTime(isoish){
+  const h = Number(isoish.slice(11, 13));
+  return h >= 21 || h < 3;
+}
+// from one API payload, the furthest-future NIGHT-WINDOW train per direction
 export function maxTimes(payload, line, sta){
   const d = payload && payload.data && payload.data[line + "-" + sta];
   const out = {};
@@ -49,11 +57,28 @@ export function maxTimes(payload, line, sta){
   for (const dir of ["UP", "DOWN"]){
     const arr = d[dir];
     if (Array.isArray(arr) && arr.length){
-      const valid = arr.filter(x => x && x.time && x.valid !== "N");
+      const valid = arr.filter(x => x && x.time && x.valid !== "N" && isNightTime(x.time));
       if (valid.length) out[dir] = valid.map(x => x.time).sort().at(-1); // ISO-ish strings sort fine
     }
   }
   return out;
+}
+// scrub morning/day times out of an already-learned dataset (history + medians)
+export function sanitizeLearned(learned){
+  const night = hhmm => { const h = Number(hhmm.slice(0, 2)); return h >= 21 || h < 3; };
+  let changed = false;
+  for (const key of Object.keys(learned)){
+    const e = learned[key];
+    const keep = (e.history || []).filter(h => night(h.time));
+    if (keep.length !== (e.history || []).length){
+      changed = true;
+      if (!keep.length){ delete learned[key]; continue; }
+      e.history = keep;
+      e.time = medianTime(keep.map(h => h.time));
+      e.nights = keep.length;
+    }
+  }
+  return changed;
 }
 // merge tonight's sightings: keep the later time per key
 export function mergeSeen(seen, line, sta, dirTimes){
@@ -110,10 +135,18 @@ async function main(){
   }
   writeFileSync(OBS_FILE, JSON.stringify(obs, null, 1));
 
+  // always keep the published dataset clean (self-heals poisoned entries)
+  const learned0 = readJson(OUT_FILE, {});
+  if (sanitizeLearned(learned0)){
+    writeFileSync(OUT_FILE, JSON.stringify(learned0, null, 1));
+    console.log("sanitized dataset; keys now:", Object.keys(learned0).length);
+  }
+
   // in the finalize window (02:00–11:59 HKT) fold the night into the dataset
   const { h } = hktParts();
   if (h >= 2 && h < 12 && Object.keys(obs.seen).length){
     const learned = foldNight(readJson(OUT_FILE, {}), obs.seen, obs.date);
+    sanitizeLearned(learned);
     writeFileSync(OUT_FILE, JSON.stringify(learned, null, 1));
     console.log("finalized", obs.date, "keys:", Object.keys(learned).length);
   }
