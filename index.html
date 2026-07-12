@@ -288,17 +288,39 @@ function seedStars(){
 function px(x, y, c){ ctx.fillStyle = c; ctx.fillRect(x, y, 1, 1); }
 function rect(x, y, w, h, c){ ctx.fillStyle = c; ctx.fillRect(x, y, w, h); }
 
-// graduated dither seam between band colours (75/50/25 — no zipper rows)
+// 天空色帶：band 數跟實際螢幕高度（每帶 ~96 螢幕px，電話 ~8／1080p ~11／大 mon 15+）
+// dither 縫每行 key 自己行嘅相位——大芒梳齒 bug 修正（12 Jul，同 work-or-not 同一刀）
+function hexLerp(a, b, t){
+  const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  const [r1, g1, b1] = p(a), [r2, g2, b2] = p(b);
+  const c = v => Math.round(v).toString(16).padStart(2, "0");
+  return "#" + c(r1 + (r2 - r1) * t) + c(g1 + (g2 - g1) * t) + c(b1 + (b2 - b1) * t);
+}
+function bandsFrom(stops, n){
+  const out = [];
+  for (let i = 0; i < n; i++){
+    const t = i / (n - 1), seg = Math.min(stops.length - 2, Math.floor(t * (stops.length - 1)));
+    const lt = t * (stops.length - 1) - seg;
+    out.push(hexLerp(stops[seg], stops[seg + 1], lt));
+  }
+  return out;
+}
 function drawSky(phase){
-  const bands = SKY[phase];
+  const bandN = Math.max(6, Math.min(20, Math.round((H * SCALE) / 96)));
+  const bands = bandsFrom(SKY[phase], bandN);
   const bh = Math.ceil(H * 0.999 / bands.length);
   for (let i = 0; i < bands.length; i++) rect(0, i * bh, W, bh, bands[i]);
+  const seam = bh >= 12 ? 3 : bh >= 6 ? 1 : 0;
   for (let i = 1; i < bands.length; i++){
-    const yb = i * bh, up = bands[i - 1], dn = bands[i];
+    const yb = i * bh, up = bands[i - 1];
     for (let x = 0; x < W; x++){
-      if ((x + yb) % 4 !== 0) px(x, yb - 1, (x + yb) % 2 ? up : dn);       // 75% lower tone above line? blended row
-      if ((x + yb) % 2 === 0) px(x, yb, up);                                // 50%
-      if ((x + yb) % 4 === 0) px(x, yb + 1, up);                            // 25%
+      if (seam === 3){
+        if ((x + yb) % 4 !== 3)     px(x, yb, up);
+        if ((x + yb + 1) % 2 === 0) px(x, yb + 1, up);
+        if ((x + yb + 2) % 4 === 0) px(x, yb + 2, up);
+      } else if (seam === 1){
+        if ((x + yb) % 2 === 0) px(x, yb, up);
+      }
     }
   }
 }

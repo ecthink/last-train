@@ -15,13 +15,17 @@
   .cell b{font-size:13.5px; letter-spacing:1px}
   .cell span{font-size:11.5px; color:#8b93a8}
   iframe{width:100%; height:560px; border:0; display:block; background:#000}
+  .hero{grid-column:1 / -1}
+  .hero iframe{height:74vh}
 </style>
 </head>
 <body>
 <h1>尾班車 — 六個時刻 AUDIT</h1>
-<p>每格都係真 app（唔使 set 站，demo 模式）。個世界唔係跟日頭夜晚——係跟「你仲有幾耐尾班車」變裝。</p>
+<p>每格都係真 app（唔使 set 站，demo 模式）。個世界唔係跟日頭夜晚——係跟「你仲有幾耐尾班車」變裝。<br>
+頂格係<b>全闊「大芒實測」</b>——天空帶數會跟你個 mon 自動加（呢度先睇到梳齒 fix）；下面六個細格係電話款帶數，同舊版睇落接近係正常。</p>
 <div class="grid" id="grid"></div>
 <script>
+const V = "20260712seamfix"; // cache-buster：迫 file:// iframe 重新讀
 const STATES = [
   ["calm",   "夜還長（&gt;2 小時）— 深藍、滿天星、月未升"],
   ["settle", "仲有時間（&lt;2 小時）— 藍加深、火車入站"],
@@ -30,9 +34,12 @@ const STATES = [
   ["run",    "走啦！！（&lt;10 分）— 全屏紅、星退場、燈轉紅、人起跑"],
   ["missed", "聽朝見。— 近黑、星最盛、車走咗、人坐低、燈熄"]
 ];
-document.getElementById("grid").innerHTML = STATES.map(([ph, desc]) =>
+document.getElementById("grid").innerHTML =
+  '<div class="cell hero"><header><b>大芒實測 · aware</b><span>全闊全高——band 數跟你個 mon 計，dither 縫應該係布紋，唔係梳齒</span></header>' +
+  '<iframe src="index.html?phase=aware&v=' + V + '"></iframe></div>' +
+  STATES.map(([ph, desc]) =>
   '<div class="cell"><header><b>' + ph + "</b><span>" + desc + "</span></header>" +
-  '<iframe loading="lazy" src="index.html?phase=' + ph + '"></iframe></div>').join("");
+  '<iframe loading="lazy" src="index.html?phase=' + ph + '&v=' + V + '"></iframe></div>').join("");
 </script>
 </body>
 </html>
