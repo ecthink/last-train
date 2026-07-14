@@ -8,11 +8,15 @@
    {
     "date": "2026-07-12",
     "time": "00:42"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:43"
    }
   ],
-  "time": "00:42",
-  "nights": 2,
-  "updated": "2026-07-12"
+  "time": "00:43",
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TKL-NOP-UP": {
   "history": [
@@ -27,11 +31,15 @@
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:53"
    }
   ],
-  "time": "01:12",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "time": "00:53",
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-QUB-UP": {
   "history": [
@@ -46,11 +54,15 @@
    {
     "date": "2026-07-12",
     "time": "01:14"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:46"
    }
   ],
   "time": "01:14",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-QUB-DOWN": {
   "history": [
@@ -65,11 +77,15 @@
    {
     "date": "2026-07-12",
     "time": "00:20"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:29"
    }
   ],
   "time": "00:20",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-YAT-UP": {
   "history": [
@@ -84,11 +100,15 @@
    {
     "date": "2026-07-12",
     "time": "01:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:41"
    }
   ],
   "time": "01:18",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-YAT-DOWN": {
   "history": [
@@ -103,11 +123,15 @@
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "00:18",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-TIK-UP": {
   "history": [
@@ -122,11 +146,15 @@
    {
     "date": "2026-07-12",
     "time": "01:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
-  "time": "01:16",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "time": "01:10",
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-TIK-DOWN": {
   "history": [
@@ -137,11 +165,15 @@
    {
     "date": "2026-07-12",
     "time": "00:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
-  "time": "00:15",
-  "nights": 2,
-  "updated": "2026-07-12"
+  "time": "00:16",
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TKL-TKO-UP": {
   "history": [
@@ -156,11 +188,15 @@
    {
     "date": "2026-07-12",
     "time": "01:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:26"
    }
   ],
-  "time": "01:18",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "time": "01:13",
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-TKO-DOWN": {
   "history": [
@@ -175,11 +211,15 @@
    {
     "date": "2026-07-12",
     "time": "00:14"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:14",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-LHP-DOWN": {
   "history": [
@@ -190,11 +230,15 @@
    {
     "date": "2026-07-12",
     "time": "00:40"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:49"
    }
   ],
-  "time": "00:29",
-  "nights": 2,
-  "updated": "2026-07-12"
+  "time": "00:40",
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TKL-HAH-UP": {
   "history": [
@@ -209,11 +253,15 @@
    {
     "date": "2026-07-12",
     "time": "01:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
-  "time": "01:25",
-  "nights": 3,
-  "updated": "2026-07-12"
+  "time": "01:14",
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "TKL-HAH-DOWN": {
   "history": [
@@ -224,11 +272,15 @@
    {
     "date": "2026-07-12",
     "time": "00:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:16",
-  "nights": 2,
-  "updated": "2026-07-12"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TKL-POA-DOWN": {
   "history": [
@@ -239,11 +291,15 @@
    {
     "date": "2026-07-12",
     "time": "00:17"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:36"
    }
   ],
-  "time": "00:14",
-  "nights": 2,
-  "updated": "2026-07-12"
+  "time": "00:17",
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-WHA-UP": {
   "history": [
@@ -258,11 +314,15 @@
    {
     "date": "2026-07-13",
     "time": "01:00"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "01:00",
-  "nights": 3,
-  "updated": "2026-07-13"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "KTL-HOM-UP": {
   "history": [
@@ -277,11 +337,15 @@
    {
     "date": "2026-07-13",
     "time": "01:02"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
   "time": "01:02",
-  "nights": 3,
-  "updated": "2026-07-13"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "KTL-YMT-UP": {
   "history": [
@@ -296,11 +360,15 @@
    {
     "date": "2026-07-13",
     "time": "01:04"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:29"
    }
   ],
   "time": "01:04",
-  "nights": 3,
-  "updated": "2026-07-13"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "KTL-MOK-UP": {
   "history": [
@@ -315,11 +383,15 @@
    {
     "date": "2026-07-13",
     "time": "01:06"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:30"
    }
   ],
   "time": "01:06",
-  "nights": 3,
-  "updated": "2026-07-13"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "KTL-PRE-UP": {
   "history": [
@@ -334,11 +406,15 @@
    {
     "date": "2026-07-13",
     "time": "01:07"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "01:07",
-  "nights": 3,
-  "updated": "2026-07-13"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "DRL-SUN-DOWN": {
   "history": [
@@ -349,11 +425,15 @@
    {
     "date": "2026-07-12",
     "time": "00:35"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:35"
    }
   ],
   "time": "00:35",
-  "nights": 2,
-  "updated": "2026-07-12"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "DRL-DIS-UP": {
   "history": [
@@ -368,264 +448,360 @@
    {
     "date": "2026-07-13",
     "time": "02:52"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "02:47"
    }
   ],
   "time": "02:12",
-  "nights": 3,
-  "updated": "2026-07-13"
+  "nights": 4,
+  "updated": "2026-07-14"
  },
  "AEL-HOK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:48"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:48"
    }
   ],
   "time": "00:48",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-KOW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:38"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:50"
    }
   ],
   "time": "00:38",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-KOW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:35"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:58"
    }
   ],
   "time": "00:35",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-TSY-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:35"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:57"
    }
   ],
   "time": "00:35",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-TSY-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:43"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "01:01"
    }
   ],
   "time": "00:43",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-AIR-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:34"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:58"
    }
   ],
   "time": "00:34",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-AIR-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:36"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:46"
    }
   ],
   "time": "00:36",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "AEL-AWE-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:45"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:45"
    }
   ],
   "time": "00:45",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-HOK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:38"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:50"
    }
   ],
   "time": "00:38",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-KOW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:40"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:52"
    }
   ],
   "time": "00:40",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-KOW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:31"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:54"
    }
   ],
   "time": "00:31",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-OLY-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:31"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:55"
    }
   ],
   "time": "00:31",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-OLY-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:40"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:51"
    }
   ],
   "time": "00:40",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-NAC-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:32"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:56"
    }
   ],
   "time": "00:32",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-NAC-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:38"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "01:04"
    }
   ],
   "time": "00:38",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-LAK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:36"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "01:00"
    }
   ],
   "time": "00:36",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-LAK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:45"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "01:00"
    }
   ],
   "time": "00:45",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-TSY-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:52"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-TSY-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:41"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:57"
    }
   ],
   "time": "00:41",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-SUN-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:34"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:58"
    }
   ],
   "time": "00:34",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TCL-SUN-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:35"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:50"
    }
   ],
   "time": "00:35",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-WKS-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-MOS-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-MOS-DOWN": {
   "history": [
@@ -636,22 +812,30 @@
    {
     "date": "2026-07-13",
     "time": "01:22"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "01:22",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TML-HEO-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HEO-DOWN": {
   "history": [
@@ -662,22 +846,30 @@
    {
     "date": "2026-07-13",
     "time": "01:20"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "01:20",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TML-TSH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:41"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TSH-DOWN": {
   "history": [
@@ -688,484 +880,660 @@
    {
     "date": "2026-07-13",
     "time": "01:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "01:18",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TML-SHM-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-SHM-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "01:14"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
-  "time": "01:14",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "time": "00:44",
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-CIO-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-CIO-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-STW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:43"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-STW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-CKT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-CKT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TAW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TAW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:22"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:22",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HIK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:37"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HIK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-DIH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:41"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-DIH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-KAT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-KAT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-SUW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:46"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-SUW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TKW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TKW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HOM-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:29"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:29",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HOM-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HUH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-HUH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-ETS-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:35"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-ETS-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-AUS-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-AUS-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:37"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-NAC-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-NAC-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-MEF-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:29"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:29",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-MEF-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:36"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TWW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:41"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TWW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-KSR-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-KSR-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-YUL-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:28",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-YUL-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:28"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-LOP-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-LOP-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:26"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TIS-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-TIS-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:22"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:23"
    }
   ],
   "time": "00:22",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-SIH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TML-SIH-DOWN": {
   "history": [
@@ -1194,572 +1562,780 @@
    {
     "date": "2026-07-12",
     "time": "00:11"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:23"
    }
   ],
   "time": "00:11",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-EXC-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:13"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:24"
    }
   ],
   "time": "00:13",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-EXC-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:15",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-HUH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:12"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:28"
    }
   ],
   "time": "00:12",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-HUH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:11"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:37"
    }
   ],
   "time": "00:11",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-MKK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:11"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:21"
    }
   ],
   "time": "00:11",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-MKK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:15",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-KOT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:12"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:26"
    }
   ],
   "time": "00:12",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-KOT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
   "time": "00:18",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-TAW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:13"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:24"
    }
   ],
   "time": "00:13",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-TAW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:22"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-SHT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:16",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-SHT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:22"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:29"
    }
   ],
   "time": "00:22",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-FOT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
   "time": "00:15",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-FOT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:36"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-UNI-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:25"
    }
   ],
   "time": "00:18",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-UNI-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:22"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-TAP-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:26"
    }
   ],
   "time": "00:16",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-TAP-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:36"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-TWO-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:29"
    }
   ],
   "time": "00:18",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-TWO-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-FAN-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:23"
    }
   ],
   "time": "00:16",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-FAN-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:37"
    }
   ],
   "time": "00:16",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-SHS-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:13"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "00:13",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "EAL-LOW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-ADM-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-OCP-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:28",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-OCP-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:48"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-WCH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-WCH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-LET-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "01:14"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
-  "time": "01:14",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "time": "00:39",
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-LET-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "SIL-SOH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:43"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-CEN-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:35"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:46"
    }
   ],
   "time": "00:35",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-ADM-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:29"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:29",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-ADM-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:28"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-TST-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-TST-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-JOR-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-JOR-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-YMT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-YMT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-MOK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:46"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-MOK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:28",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-PRE-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-PRE-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:37"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-SSP-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:22"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:22",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-SSP-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:35"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-CSW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:13"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:43"
    }
   ],
   "time": "00:13",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-CSW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-LCK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:45"
    }
   ],
   "time": "00:15",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-LCK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:31"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
   "time": "00:31",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-MEF-UP": {
   "history": [
@@ -1770,22 +2346,30 @@
    {
     "date": "2026-07-13",
     "time": "01:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
-  "time": "00:17",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "time": "00:47",
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TWL-MEF-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:29"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:30"
    }
   ],
   "time": "00:29",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-LAK-UP": {
   "history": [
@@ -1796,22 +2380,30 @@
    {
     "date": "2026-07-13",
     "time": "01:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:41"
    }
   ],
   "time": "01:16",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TWL-LAK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-KWF-UP": {
   "history": [
@@ -1822,22 +2414,30 @@
    {
     "date": "2026-07-13",
     "time": "01:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "01:18",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TWL-KWF-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:25"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-KWH-UP": {
   "history": [
@@ -1848,22 +2448,30 @@
    {
     "date": "2026-07-13",
     "time": "01:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:45"
    }
   ],
   "time": "01:20",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TWL-KWH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:24"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-TWH-UP": {
   "history": [
@@ -1874,77 +2482,105 @@
    {
     "date": "2026-07-13",
     "time": "01:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:48"
    }
   ],
   "time": "01:22",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "TWL-TWH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:21"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "TWL-TSW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:20"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:20"
    }
   ],
   "time": "00:20",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-HOM-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:32"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
-  "time": "00:32",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "time": "00:27",
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-YMT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:30"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-MOK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:29"
    }
   ],
   "time": "00:28",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-PRE-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-SKM-UP": {
   "history": [
@@ -1955,22 +2591,30 @@
    {
     "date": "2026-07-13",
     "time": "01:09"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:33"
    }
   ],
   "time": "01:09",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-SKM-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:25"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-KOT-UP": {
   "history": [
@@ -1981,22 +2625,30 @@
    {
     "date": "2026-07-13",
     "time": "01:11"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:26"
    }
   ],
   "time": "01:11",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-KOT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:32"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:35"
    }
   ],
   "time": "00:32",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-LOF-UP": {
   "history": [
@@ -2007,22 +2659,30 @@
    {
     "date": "2026-07-13",
     "time": "01:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:28"
    }
   ],
   "time": "01:14",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-LOF-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:33"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-WTS-UP": {
   "history": [
@@ -2033,22 +2693,30 @@
    {
     "date": "2026-07-13",
     "time": "01:17"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:30"
    }
   ],
   "time": "01:16",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-WTS-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:28",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-DIH-UP": {
   "history": [
@@ -2059,22 +2727,30 @@
    {
     "date": "2026-07-13",
     "time": "01:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
   "time": "01:18",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-DIH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-CHH-UP": {
   "history": [
@@ -2085,22 +2761,30 @@
    {
     "date": "2026-07-13",
     "time": "01:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:34"
    }
   ],
   "time": "01:20",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-CHH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:36"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-KOB-UP": {
   "history": [
@@ -2111,11 +2795,15 @@
    {
     "date": "2026-07-13",
     "time": "01:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:30"
    }
   ],
   "time": "01:22",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-KOB-DOWN": {
   "history": [
@@ -2126,11 +2814,15 @@
    {
     "date": "2026-07-13",
     "time": "01:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:33"
    }
   ],
   "time": "01:16",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-NTK-UP": {
   "history": [
@@ -2141,44 +2833,60 @@
    {
     "date": "2026-07-13",
     "time": "01:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:32"
    }
   ],
-  "time": "00:16",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "time": "00:32",
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-NTK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "01:15"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:23"
    }
   ],
-  "time": "01:15",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "time": "00:23",
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-KWT-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:24"
    }
   ],
   "time": "00:18",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-KWT-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:21"
    }
   ],
   "time": "00:18",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "KTL-LAT-UP": {
   "history": [
@@ -2189,11 +2897,15 @@
    {
     "date": "2026-07-13",
     "time": "01:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:26"
    }
   ],
   "time": "01:26",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-LAT-DOWN": {
   "history": [
@@ -2204,11 +2916,15 @@
    {
     "date": "2026-07-13",
     "time": "01:20"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:19"
    }
   ],
   "time": "01:20",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-YAT-UP": {
   "history": [
@@ -2219,11 +2935,15 @@
    {
     "date": "2026-07-13",
     "time": "01:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:28"
    }
   ],
   "time": "01:28",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-YAT-DOWN": {
   "history": [
@@ -2234,11 +2954,15 @@
    {
     "date": "2026-07-13",
     "time": "01:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:25"
    }
   ],
   "time": "01:18",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "KTL-TIK-DOWN": {
   "history": [
@@ -2249,308 +2973,420 @@
    {
     "date": "2026-07-13",
     "time": "01:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:23"
    }
   ],
   "time": "01:16",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "ISL-KET-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:51"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-HKU-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:24"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:53"
    }
   ],
   "time": "00:24",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-HKU-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:33"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:54"
    }
   ],
   "time": "00:33",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SYP-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:26"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:45"
    }
   ],
   "time": "00:26",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SYP-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:31"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:52"
    }
   ],
   "time": "00:31",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SHW-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SHW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:29"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:50"
    }
   ],
   "time": "00:29",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-CEN-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:48"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-CEN-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:48"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-ADM-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:50"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-ADM-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:25"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:56"
    }
   ],
   "time": "00:25",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-WAC-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:52"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-WAC-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:32"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:54"
    }
   ],
   "time": "00:32",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-CAB-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:45"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-CAB-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:52"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-TIH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-TIH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:28"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:50"
    }
   ],
   "time": "00:28",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-FOH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:40"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-FOH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:27"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:49"
    }
   ],
   "time": "00:27",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-NOP-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:21"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "00:21",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-NOP-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:36"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:47"
    }
   ],
   "time": "00:36",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-QUB-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:23"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:44"
    }
   ],
   "time": "00:23",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-QUB-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:34"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:45"
    }
   ],
   "time": "00:34",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-TAK-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:19"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:38"
    }
   ],
   "time": "00:19",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-TAK-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:32"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:43"
    }
   ],
   "time": "00:32",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SWH-UP": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "01:14"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:27"
    }
   ],
-  "time": "01:14",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "time": "00:27",
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SWH-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:30"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "00:30",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-SKW-UP": {
   "history": [
@@ -2561,22 +3397,30 @@
    {
     "date": "2026-07-13",
     "time": "01:16"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:42"
    }
   ],
   "time": "01:16",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "ISL-SKW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:38"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:39"
    }
   ],
   "time": "00:38",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-HFC-UP": {
   "history": [
@@ -2587,32 +3431,44 @@
    {
     "date": "2026-07-13",
     "time": "01:18"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:31"
    }
   ],
   "time": "01:18",
-  "nights": 2,
-  "updated": "2026-07-13"
+  "nights": 3,
+  "updated": "2026-07-14"
  },
  "ISL-HFC-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:36"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:37"
    }
   ],
   "time": "00:36",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  },
  "ISL-CHW-DOWN": {
   "history": [
    {
     "date": "2026-07-12",
     "time": "00:35"
+   },
+   {
+    "date": "2026-07-14",
+    "time": "00:36"
    }
   ],
   "time": "00:35",
-  "nights": 1,
-  "updated": "2026-07-12"
+  "nights": 2,
+  "updated": "2026-07-14"
  }
 }
