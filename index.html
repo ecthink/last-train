@@ -551,9 +551,18 @@ async function fetchLearned(){
     } catch(e){}
   }
 }
+// a learned time is only trusted while the watcher keeps seeing that station:
+// a week without a fresh night (Aug–Oct 2026 went 5 weeks) → the user's own time
+const STALE_DAYS = 7;
 function effTime(){
   const e = cfg && learned[cfg.line + "-" + cfg.sta + "-" + (cfg.dir || "UP")];
-  if (e && e.time) return { time: e.time, tag: "實測 · " + e.nights + " 晚" };
+  if (e && e.time && e.updated){
+    const tonight = new Date(Date.now() + 8 * 3600e3 - 12 * 3600e3).toISOString().slice(0, 10); // HKT service date
+    if ((Date.parse(tonight) - Date.parse(e.updated)) / 864e5 <= STALE_DAYS){
+      const [, m, d] = e.updated.split("-").map(Number);
+      return { time: e.time, tag: "實測 " + e.nights + " 晚 · 至 " + m + "/" + d };
+    }
+  }
   return { time: cfg.time, tag: "後備值" };
 }
 
