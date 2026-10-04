@@ -1,10 +1,22 @@
 name: night watcher 夜間觀察者
 
+# One job watches the whole night — every 10 min from 20:30, every 3 min from
+# 22:30 until 02:10 HKT, then finalizes. It used to be one job per */10 slot,
+# but from 27 Aug 2026 GitHub dropped nearly every slot (2 runs a night, all
+# after 02:00), so the network went dark unseen for 38 nights.
+# Now only ONE start time has to fire: the rest queue behind the running job
+# (concurrency) and just re-finalize. All off the hour — :00 is when GitHub
+# sheds scheduled load.
 on:
   schedule:
-    - cron: "*/10 15-17 * * *"   # 23:00–01:50 HKT — watch the network wind down
-    - cron: "0,15,30 18 * * *"   # 02:00–02:30 HKT — finalize tonight's record
-  workflow_dispatch:
+    - cron: "47 12 * * *"   # 20:47 HKT
+    - cron: "23 13 * * *"   # 21:23 HKT
+    - cron: "53 13 * * *"   # 21:53 HKT
+    - cron: "23 14 * * *"   # 22:23 HKT
+    - cron: "53 14 * * *"   # 22:53 HKT
+    - cron: "23 15 * * *"   # 23:23 HKT
+    - cron: "41 18 * * *"   # 02:41 HKT — finalize if the night was cut short
+  workflow_dispatch:        # also how an outside scheduler can start the night on time (README)
 
 permissions:
   contents: write
@@ -16,17 +28,29 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
+    timeout-minutes: 350    # 20:30 → 02:10 is 5h40m; GitHub's cap is 6h
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: observe the network
-        run: node collect.mjs
-      - name: commit tonight's observations
+      - name: watch the network go dark
         run: |
           git config user.name "night-watcher"
           git config user.email "actions@users.noreply.github.com"
-          git add data
-          git diff --cached --quiet || git commit -m "🌙 observations $(TZ=Asia/Hong_Kong date +'%m-%d %H:%M') HKT"
-          git push
+          checkpoint(){
+            git add data
+            git diff --cached --quiet && return 0
+            git commit -q -m "🌙 observations $(TZ=Asia/Hong_Kong date +'%m-%d %H:%M') HKT"
+            git push -q || { git pull -q --rebase && git push -q; } || echo "::warning::push failed; retrying at the next checkpoint"
+          }
+          saved=$(date +%s)
+          while :; do
+            node collect.mjs || true
+            t=$((10#$(TZ=Asia/Hong_Kong date +%H%M)))
+            # outside 20:30–02:10 HKT (late finalize, manual test): one pass only
+            if [ $t -ge 210 ] && [ $t -lt 2030 ]; then break; fi
+            if [ $(( $(date +%s) - saved )) -ge 1800 ]; then checkpoint; saved=$(date +%s); fi
+            if [ $t -ge 2230 ] || [ $t -lt 210 ]; then sleep 180; else sleep 600; fi
+          done
+          checkpoint
